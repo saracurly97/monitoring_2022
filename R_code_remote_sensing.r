@@ -99,10 +99,40 @@ plot(l2011$B3_sre, col=clr)
 clnir <- colorRampPalette(c("red","orange","yellow"))(100)
 plot(l2011$B4_sre, col= clnir)
 
-
 plotRGB(l2011, r=3, g=2, b=1, stretch="Lin")
 plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")  # false colours
 plotRGB(l2011, r=3, g=2, b=4, stretch="Lin") 
 plotRGB(l2011, r=3, g=4, b=2, stretch="Lin") 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# final day on this tropical forest reserve
+
+plotRGB(l2011, r=4, g=3, b=2, stretch="Lin") #false colours #lin linear stretching
+plotRGB(l2011, r=4, g=3, b=2, stretch="Hist") # hist histogram stretching 
+
+# importing past data 
+l1988 <- brick("p224r63_1988.grd")
+l1988
+
+par(mfrow=c(2,1))
+plotRGB(l1988, r=4, g=3, b=2, stretch="Lin")  
+plotRGB(l2011, r=4, g=3, b=2, stretch="Lin")  
+ 
+# put the NIR in blue channel 
+plotRGB(l1988, r=2, g=3, b=4, stretch="Lin")  
+plotRGB(l2011, r=2, g=3, b=4, stretch="Lin") 
