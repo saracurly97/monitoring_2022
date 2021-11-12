@@ -105,21 +105,6 @@ plotRGB(l2011, r=3, g=2, b=4, stretch="Lin")
 plotRGB(l2011, r=3, g=4, b=2, stretch="Lin") 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # final day on this tropical forest reserve
 
 plotRGB(l2011, r=4, g=3, b=2, stretch="Lin") #false colours #lin linear stretching
