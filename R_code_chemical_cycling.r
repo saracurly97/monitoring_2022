@@ -4,9 +4,7 @@
 library(raster)
 
 # Set the working directory
-# setwd("~/lab/en/") # Linux 
-# setwd("C:/lab/en/")  # windows
-# setwd("/Users/name/lab/en/") # mac
+setwd("C:/Users/saras/Desktop/lab/EN")  # windows
 
 en01 <- raster("EN_0001.png")
 # what is the range of the data? (minimum and maximum data)
@@ -68,28 +66,33 @@ plot(EN$EN_0001, col=cl)
 #rgb
 plotRGB(EN, r=1, g=7, b=13, stretch="lin")
 
-#difference 
+#----- day2
+
+#importing all the data together with the lapply function
+rlist <- list.files(pattern="EN")
+rlist
+
+list_rast <- lapply(rlist, raster)
+list_rast
+
+EN_stack <- stack(list_rast)
+EN_stack
+
+cl <- colorRampPalette(c('red','orange','yellow'))(100) #
+plot(EN_stack, col=cl)
+
+#Exercise plot only the first images of the stack: $
+plot(EN_stack$EN_0001, col=cl)
+
+#difference (processing the data)
+ENdif <- EN_stack$EN_0001 - EN_stack$EN_0013
+cldif <- colorRampPalette(c('blue','white','red'))(100)
+plot(ENdif, col=cldif) #red part big change(?)
+
+# automeated processing source function
+source("R_code_automatic_script.txt")
 
 # paris 
 paris(EN)
 
 #direct import 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
