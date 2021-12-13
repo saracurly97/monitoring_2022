@@ -7,6 +7,8 @@ install.packages("ggplot2")
 library(ggplot2)
 install.packages("gridExtra")
 library(gridExtra)
+install.packages("patchwork")
+library(patchwork)
 
 setwd("C:/Users/saras/Desktop/lab/")
 
@@ -98,3 +100,30 @@ ggplot(proportion1992, aes(x=cover, y=prop1992, color=cover)) + geom_bar(stat="i
 
 ggplot(proportion, aes(x=cover, y=prop2006, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(0,1)
 ggplot(proportion, aes(x=cover, y=prop1992, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(0,1)
+
+p1 <- ggplot(proportion, aes(x=cover, y=prop1992, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(0,1)
+p2 <- ggplot(proportion, aes(x=cover, y=prop2006, color=cover)) + geom_bar(stat="identity", fill="white") + ylim(0,1)
+# ......
+p1+p2
+#.....
+p1/p2
+
+#patchwork is working even with raster data, but they should be plottetted with.....
+#.....
+#common stuff:
+plotRGB(l1992, r=1, g=2, b=3, stretch="Lin")
+ggRGB(l1992, r=1, g=2, b=3)
+ggRGB(l1992, r=1, g=2, b=3, stretch="lin")
+
+#patchwork 
+ggRGB(l1992, r=1, g=2, b=3, stretch="lin")
+ggRGB(l1992, r=1, g=2, b=3, stretch="hist")
+ggRGB(l1992, r=1, g=2, b=3, stretch="sqrt")
+ggRGB(l1992, r=1, g=2, b=3, stretch="log")
+
+# multitemporal patchwork
+gp1 <- ggRGB(l1992, r=1, g=2, b=3)
+gp5 <- ggRGB(l2006, r=1, g=2, b=3)
+ 
+gp1 + gp5
+gp1 / gp5
