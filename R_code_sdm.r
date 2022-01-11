@@ -48,3 +48,19 @@ points(presences, pch=19)
 
 plot(preds$precipitation, col=cl)
 points(presences, pch=19)
+
+#day 2
+# importing the source script 
+
+setwd("C:/Users/saras/Desktop/lab")
+ 
+source("R_code_source_sdm.r")
+
+# in the theioretical slide of SDMs we should us individuals of a species and
+preds 
+#......
+
+#let's ecxplain to the model what are the training and....
+datasdm <- sdmData(train=species, predictors=preds)
+
+m1 <- sdm(Occurrence~temperature+elevation+precipitation+vegetation, data=datasdm, methods="glm")
