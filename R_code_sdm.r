@@ -58,9 +58,34 @@ source("R_code_source_sdm.r")
 
 # in the theioretical slide of SDMs we should us individuals of a species and
 preds 
-#......
+#these are the predictions: 
 
 #let's ecxplain to the model what are the training and....
 datasdm <- sdmData(train=species, predictors=preds)
 
+#model
 m1 <- sdm(Occurrence~temperature+elevation+precipitation+vegetation, data=datasdm, methods="glm")
+
+#prediction: map probability
+p1 <- predict(m1, newdata=preds)
+
+plot(p1, col=cl)
+points(presences, pch=19)
+
+# stack everything together
+s1 <- stack(preds, p1)
+plot(s1, col=cl)
+
+#
+names(s1) <- c("Elevation", "Precipitation", "Temperature", "Vegetation", "Model")
+plot(s1, col=cl)
+
+
+
+
+
+
+
+
+
+
