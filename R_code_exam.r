@@ -1,6 +1,6 @@
 # Project Sara Sena – Fire and Temperature in Australia 
 
-# in this R script I will analyze data that are retrievable from Copernicus that regards fire and temperature. I will focus my analysis on Australia. 
+# in this R script I will analyze data that are retrievable from Copernicus that regards fire disturbance and land surface temperature. I will focus my analysis on Australia. 
 # I will analyze the first 10 days of June of the following years: 2019 - 2020 - 2021 
 
 # Data taken from Australia. I used the Dataset Burnt Area 300m and Land Surface Temperature for the first decade of june 2019 - 2020 - 2021 
@@ -32,7 +32,7 @@ library(rgdal)
 library(gridExtra) 
 
 
-#Now I load the burnt area of the the years. I will analyse if there was decay during that dayand the fires of the whole season
+#Now I load the burnt area of the the years. I will analyse if there was decay during that day and the fires of the whole season
 
 #2019 
 BA20192 <- raster("fire_disturbance/OnlyAustralia/2019/20190610/c_gls_BA300-CP-DEKAD_201906100000_AUSTRALIA_PROBAV_V1.1.1.tiff") 
@@ -89,31 +89,31 @@ grid.arrange(FDSF2019, FDSF2020, FDSF2021, nrow=1)
 #Now I am going to show the max temperature  of the days for the years selected 
 MaxTemp = stack(LST20191, LST20201, LST20211) 
 
-MaxTemp2019 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_201906010000_AUSTRALIA_GEO_V1.2.1)) + ggtitle("MaxTemp2019") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max Temperature_2019") 
-MaxTemp2020 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_202006010000_AUSTRALIA_GEO_V1.2.1)) + ggtitle("MaxTemp2020") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max Temperature_2020") 
-MaxTemp2021 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_202106010000_AUSTRALIA_GEO_V2.0.1)) + ggtitle("MaxTemp2021") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max Temperature_2021") 
+MaxTemp2019 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_201906010000_AUSTRALIA_GEO_V1.2.1)) + ggtitle("MaxTemp2019") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max_T_2019") 
+MaxTemp2020 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_202006010000_AUSTRALIA_GEO_V1.2.1)) + ggtitle("MaxTemp2020") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max_T_2020") 
+MaxTemp2021 = ggplot() + geom_raster(MaxTemp$c_gls_LST10.DC.MAX_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MAX_202106010000_AUSTRALIA_GEO_V2.0.1)) + ggtitle("MaxTemp2021") + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Max_T_2021") 
 
-grid.arrange(MaxTemp2019, MaxTemp2020, MaxTemp2021, nrow=1) 
+# grid.arrange(MaxTemp2019, MaxTemp2020, MaxTemp2021, nrow=1) 
 
 
 #Now I am going to show the min temperature of the days for the years selected 
 MinTemp = stack(LST20192, LST20202, LST20212)
 
-MinTemp2019 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_201906010000_AUSTRALIA_GEO_V1.2.1))+ guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min Temperature_2019") 
-MinTemp2020 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_202006010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min Temperature_2020") 
-MinTemp2021 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_202106010000_AUSTRALIA_GEO_V2.0.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min Temperature_2021") 
+MinTemp2019 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_201906010000_AUSTRALIA_GEO_V1.2.1))+ guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min_T_2019") 
+MinTemp2020 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_202006010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min_T_2020") 
+MinTemp2021 = ggplot() + geom_raster(MinTemp$c_gls_LST10.DC.MIN_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MIN_202106010000_AUSTRALIA_GEO_V2.0.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Min_T_2021") 
 
-grid.arrange(MinTemp2019, MinTemp2020, MinTemp2021, nrow=1) 
+# grid.arrange(MinTemp2019, MinTemp2020, MinTemp2021, nrow=1) 
 
 
 #Now I am going to show the median temperature of the days for the years seleceted 
 MedianTemp = stack(LST20193, LST20203, LST20213) 
 
-MedianTemp2019 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_201906010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median Temperature_2019") 
-MedianTemp2020 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_202006010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median Temperature_2020") 
-MedianTemp2021 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_202106010000_AUSTRALIA_GEO_V2.0.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median Temperature_2021") 
+MedianTemp2019 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_201906010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_201906010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median_T_2019") 
+MedianTemp2020 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_202006010000_AUSTRALIA_GEO_V1.2.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_202006010000_AUSTRALIA_GEO_V1.2.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median_T_2020") 
+MedianTemp2021 = ggplot() + geom_raster(MedianTemp$c_gls_LST10.DC.MEDIAN_202106010000_AUSTRALIA_GEO_V2.0.1, mapping= aes (x=x, y=y, fill=c_gls_LST10.DC.MEDIAN_202106010000_AUSTRALIA_GEO_V2.0.1)) + guides(fill=guide_legend(title="Temperature")) + scale_fill_viridis(option="plasma") + ggtitle("Median_T_2021") 
 
-grid.arrange(MedianTemp2019, MedianTemp2020, MedianTemp2021, nrow=1) 
+# grid.arrange(MedianTemp2019, MedianTemp2020, MedianTemp2021, nrow=1) 
 
 # now I will print together the images of min, median and max temperature 
 grid.arrange(MinTemp2019, MinTemp2020, MinTemp2021, MedianTemp2019, MedianTemp2020, MedianTemp2021, MaxTemp2019, MaxTemp2020, MaxTemp2021, nrow = 3, ncol = 3) 
