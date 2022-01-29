@@ -66,9 +66,9 @@ LST20213 <- raster("land_surface_temperature/Australia/2021/20210601/c_gls_LST10
 
 
 #I am going to show first the area that had been burnt in those days for the 3 years 
-ID2019 = ggplot() + geom_raster(BA20192, mapping = aes(x=x, y=y, fill=c_gls_BA300.CP.DEKAD_201906100000_AUSTRALIA_PROBAV_V1.1.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Area with Decay_2019") 
-ID2020 = ggplot() + geom_raster(BA20202, mapping = aes(x=x, y=y, fill=c_gls_BA300.CP.DEKAD_202006100000_AUSTRALIA_PROBAV_V1.1.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Area with Decay_2020") 
-ID2021 = ggplot() + geom_raster(BA20212, mapping = aes(x=x, y=y, fill=c_gls_BA300.NOBS_202106100000_AUSTRALIA_S3_V1.2.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Area with Decay_2021") 
+ID2019 = ggplot() + geom_raster(BA20192, mapping = aes(x=x, y=y, fill=c_gls_BA300.CP.DEKAD_201906100000_AUSTRALIA_PROBAV_V1.1.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Burnt Area 2019")
+ID2020 = ggplot() + geom_raster(BA20202, mapping = aes(x=x, y=y, fill=c_gls_BA300.CP.DEKAD_202006100000_AUSTRALIA_PROBAV_V1.1.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Burnt Area 2020")
+ID2021 = ggplot() + geom_raster(BA20212, mapping = aes(x=x, y=y, fill=c_gls_BA300.NOBS_202106100000_AUSTRALIA_S3_V1.2.1)) + guides(fill=guide_legend(title="Date")) + scale_fill_viridis(option="viridis") + ggtitle("Burnt Area 2021")
 
 grid.arrange(ID2019, ID2020, ID2021, nrow=1) 
 
